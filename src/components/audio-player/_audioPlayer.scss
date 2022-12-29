@@ -1,0 +1,17 @@
+.audio {
+	&-player {
+		&-body {
+			width: 100%;
+			height: 44%;
+			margin: 3% 0%;
+		}
+
+		&-left {
+			width: 37%;
+		}
+
+		&-right {
+			width: 63%;
+		}
+	}
+}

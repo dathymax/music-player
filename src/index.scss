@@ -19,8 +19,13 @@ code {
 
 // ------------- Components ------------------//
 @import "./components/sidebar/sidebar";
+@import "./components/queue/queue";
+@import "./components/song-card/songCard";
+@import "./components/audio-player/audioPlayer";
+@import "./components/progress-circle/progressCircle";
 
 //-------------- Screens ---------------------//
+@import "./screens/auth/login";
 @import "./screens/favourites/favourites";
 @import "./screens/feed/feed";
 @import "./screens/home/home";
