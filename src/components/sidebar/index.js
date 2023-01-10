@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import MyLove from "../../asset/my-love.jpg";
 import Info from "../../asset/info.webp";
 import SideBarButton from "./Button";
 import { MdFavorite, MdSpaceDashboard } from "react-icons/md";
@@ -18,7 +17,7 @@ const Sidebar = () => {
 
 	return (
 		<div className="sidebar-container">
-			<img src={image} alt="Info" className="profile-img" />
+			<img src={Info} alt="Info" className="profile-img" />
 			<div>
 				<SideBarButton
 					title="Feed"
