@@ -36,13 +36,23 @@ const AudioPlayer = ({
 	};
 
 	useEffect(() => {
-		if (isPlaying && audioRef.current) {
-			audioRef.current = new Audio(audioSrc);
-			audioRef.current.play();
-			startTimer();
+		if (audioRef.current.src) {
+			if (isPlaying && audioRef.current) {
+				audioRef.current.play();
+				startTimer();
+			} else {
+				clearInterval(intervalRef.current);
+				audioRef.current.pause();
+			}
 		} else {
-			clearInterval(intervalRef.current);
-			audioRef.current.pause();
+			if (isPlaying && audioRef.current) {
+				audioRef.current = new Audio(audioSrc);
+				audioRef.current.play();
+				startTimer();
+			} else {
+				clearInterval(intervalRef.current);
+				audioRef.current.pause();
+			}
 		}
 	}, [isPlaying]);
 
@@ -69,11 +79,6 @@ const AudioPlayer = ({
 		};
 	}, []);
 
-	const artists = [];
-	currentTrack?.album?.artists?.forEach((artist) => {
-		artists.push(artist?.name);
-	});
-
 	const handleNext = () => {
 		if (currentIndex < total.length - 1) {
 			setCurrentIndex(currentIndex + 1);
@@ -86,6 +91,15 @@ const AudioPlayer = ({
 		if (currentIndex - 1 < 0) setCurrentIndex(total.length - 1);
 		else setCurrentIndex(currentIndex - 1);
 	};
+
+	const addZero = (n) => {
+		return n > 9 ? "" + n : "0" + n;
+	};
+
+	const artists = [];
+	currentTrack?.album?.artists?.forEach((artist) => {
+		artists.push(artist?.name);
+	});
 
 	return (
 		<div className="audio-player-body flex">
@@ -104,7 +118,7 @@ const AudioPlayer = ({
 				<div className="audio-player-right-bottom flex">
 					<div className="song-duration flex">
 						<p className="duration">
-							0:{Math.round(trackProgress)}
+							0:{addZero(Math.round(trackProgress))}
 						</p>
 						<WaveAnimation isPlaying={isPlaying} />
 						<p className="duration">0:30</p>
