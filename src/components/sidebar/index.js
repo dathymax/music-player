@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import MyLove from "../../asset/my-love.jpg";
 import Info from "../../asset/info.webp";
 import SideBarButton from "./Button";
 import { MdFavorite, MdSpaceDashboard } from "react-icons/md";
