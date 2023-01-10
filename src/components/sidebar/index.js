@@ -17,7 +17,7 @@ const Sidebar = () => {
 
 	return (
 		<div className="sidebar-container">
-			<img src={image} alt="Info" className="profile-img" />
+			<img src={Info} alt="Info" className="profile-img" />
 			<div>
 				<SideBarButton
 					title="Feed"

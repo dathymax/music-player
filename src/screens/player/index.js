@@ -29,7 +29,12 @@ const Player = () => {
 	return (
 		<div className="screen-container flex">
 			<div className="player-body-left">
-				<AudioPlayer />
+				<AudioPlayer
+					total={tracks}
+					currentTrack={currentTrack}
+					currentIndex={currentIndex}
+					setCurrentIndex={setCurrentIndex}
+				/>
 			</div>
 			<div className="player-body-right">
 				<SongCard album={currentTrack?.album} />
